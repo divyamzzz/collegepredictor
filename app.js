@@ -2,10 +2,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const app = express();
-const students =[];
 app.set('view engine', 'ejs');
 const mongoose =require("mongoose");
-mongoose.connect("mongodb://0.0.0.0:27017/collegepredcitor",{useNewUrlParser: true});
+mongoose.connect("mongodb://0.0.0.0:27017/collegepredictor",{useNewUrlParser: true});
+var sid="";
+var studetails=[];
 const studentschema = new mongoose.Schema({
     name : String,
     email : String,
@@ -13,7 +14,15 @@ const studentschema = new mongoose.Schema({
     rank : Number,
     category : String
 });
+const collegeschema =new mongoose.Schema({
+    name:String,
+    maxrank:Number
+});
 const student = mongoose.model("student",studentschema);
+const college =mongoose.model("names",collegeschema);
+college.find({}).then(function(collegedetails){
+    console.log(collegedetails);
+})
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
@@ -22,8 +31,10 @@ app.get("/",function(req,res)
     res.render('index');
 })
 app.get("/dashboard",function(req,res){
-    
-
+    student.find({_id:sid}).then(function(studentDetails)
+    {
+        res.render("dashboard",{sdetails:studentDetails}); 
+    })
 })
 app.post("/dashboard",function(req,res)
 {
@@ -39,13 +50,13 @@ app.post("/signup",function(req,res)
         category : req.body.category
     })
     istudent.save();
-   student.find({}).then(function(studentDetails)
+   student.findOne({name:istudent.name},{_id:1}).then(function(studentDetails)
    {
-        console.log(studentDetails)
-        res.render('dashboard',{sdetails:studentDetails});
+        sid=studentDetails;
+        res.redirect("/dashboard");
     })
+   
 });
-
 app.get("/signup",function(req,res)
 {
     res.render('signup');
