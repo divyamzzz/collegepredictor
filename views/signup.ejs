@@ -1,0 +1,51 @@
+<%-include('partials/header')-%>
+<div class="middle1">
+  <div class="row">
+    <div class="col-lg-6">
+      <form method="post" action="/signup">
+         <div class="signup">
+              <h1>SIGN UP</h1>
+              <input type="text" class="ex1" name="sname">
+              <label >Name</label>
+              <br>
+              <input type="email" class="ex1" name="email">
+              <label >Email</label>
+              <br>
+              <input type="text" class="ex1" name="gender">
+              <label >Gender</label>
+              <br>
+              <input type="text" class="ex1" name="category">
+              <label >Category</label>
+              <br>
+              <input type="text" class="ex1" name="rank">
+              <label >Rank</label>
+              <div style="padding: 10px 0 0 10px;">
+               <button type="submit">submit</button>
+              </div>  
+           </div>
+       </form>
+    </div>
+  <div class="carousel1 col-lg-6">
+      <div class="container main">
+         <div id="carouselExample" class="carousel slide">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                 <div class="carousel-item active">
+                   <img src="nsut.jpg" class="img1" alt="...">
+               <h2 class="para">NSUT:Seat intake 1692</h2>
+                 </div>
+                 <div class="carousel-item">
+                   <img src="dtu.jpg" class="img1" alt="...">
+                   <h2 class="para">DTU:Seat intake 2514</h2>
+                 </div>
+                 <div class="carousel-item">
+                   <img src="iiitd.jpg" class="img1" alt="...">
+                   <h2 class="para">IITD:Seat intake 521</h2>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+ </div> 
+</div>       
+<%-include('partials/footer')-%>

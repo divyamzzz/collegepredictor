@@ -1,0 +1,35 @@
+<%-include('partials/header')-%>
+<div class="details">
+  <div class="row">
+  <div class="col-lg-6">
+    <div class="info">      
+          <ul type="none">
+          <% sdetails.forEach(function(student){ %>
+         <li>
+          <h4>Name: <%=student.name%></h4>
+        </li>
+        <li>
+          <h4>Email: <%=student.email%></h4>
+        </li>
+        <li>
+          <h4>Gender: <%=student.gender%></h4>
+        </li>
+        <li>
+          <h4>Category: <%=student.category%></h4>
+        </li>
+        <li>
+          <h4>Rank: <%=student.rank%></h4>
+        </li>
+      <% }) %>
+      <form action="/dashboard" method="post">
+        <label for="sbutton">CLICK TO VIEW RESULT</label>
+        <br>
+        <button type="submit" name="sbutton">GO</button>
+        </form>   
+      </ul>
+    
+    </div>  
+  </div>
+  </div>  
+</div>
+   <%- include('partials/footer') -%>

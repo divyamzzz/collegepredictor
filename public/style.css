@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+body{
+    background-image: url("college.jpg");
+    opacity: 0.8;
+}
+#title
+{    
+  background-color:  black;
+  max-height: 150px;
+}
+.font{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    line-height: 1.5;
+    color: beige;
+}
+.container{
+    padding-top: 2rem;
+}
+.container2{
+    line-height: 4;
+}
+.font1{
+    font-family: 'Ubuntu', sans-serif;
+}
+.navbar2{
+    --bs-navbar-padding-x: 0;
+    --bs-navbar-padding-y: 0.5rem;
+    --bs-navbar-color: rgba(var(--bs-emphasis-color-rgb), 0.65);
+    --bs-navbar-hover-color: rgba(var(--bs-emphasis-color-rgb), 0.8);
+    --bs-navbar-disabled-color: rgba(var(--bs-emphasis-color-rgb), 0.3);
+    --bs-navbar-active-color: rgba(var(--bs-emphasis-color-rgb), 1);
+    --bs-navbar-brand-padding-y: 0.3125rem;
+    --bs-navbar-brand-margin-end: 1rem;
+    --bs-navbar-brand-font-size: 1.25rem;
+    --bs-navbar-brand-color: rgba(var(--bs-emphasis-color-rgb), 1);
+    --bs-navbar-brand-hover-color: rgba(var(--bs-emphasis-color-rgb), 1);
+    --bs-navbar-nav-link-padding-x: 0.5rem;
+    --bs-navbar-toggler-padding-y: 0.25rem;
+    --bs-navbar-toggler-padding-x: 0.75rem;
+    --bs-navbar-toggler-font-size: 1.25rem;
+    --bs-navbar-toggler-icon-bg: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e);
+    --bs-navbar-toggler-border-color: rgba(var(--bs-emphasis-color-rgb), 0.15);
+    --bs-navbar-toggler-border-radius: 0.375rem;
+    --bs-navbar-toggler-focus-width: 0.25rem;
+    --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 5rem;
+}
+.navbar1{
+    padding-top: var(--bs-navbar-brand-padding-y);
+    padding-bottom: var(--bs-navbar-brand-padding-y);
+    margin-right: var(--bs-navbar-brand-margin-end);
+    font-size: 2rem;
+    color: var(--bs-navbar-brand-color);
+    text-decoration: none;
+    white-space: nowrap;
+    font-weight: bold;
+    color: beige;
+    font-family: 'Ubuntu', sans-serif;
+}
+.dbutton{
+    margin: 5% 3% 5% 0;
+}
+.tittleimage{
+    width: 100%;
+    rotate: -90deg;
+    position: relative;
+    top: 100px;
+    left: 663.5px;
+}
+.phoneimg{
+    width: 110%;
+    position: relative;
+    right:300px;
+}
+.h3size{
+    font-size: 2rem;
+}
+.h3size1{
+    margin-right: 35px;
+    font-family: 'Sacramento', cursive;
+    font-size: 4rem;
+}
+.h2size{
+    font-size: 3rem;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bolder;
+}
+.icon
+{
+    color: white;
+}
+.icon:hover{
+    color: maroon;
+}
+
+#press{
+
+ background-color: #ef8172;
+    text-align: center;
+    padding-bottom: 3%;
+}
+.sponsor{
+    width: 15%;
+    padding: 0 15px 0 15px;
+}
+#cta{
+    background-color: beige;
+    text-align: center;
+}
+.login1{
+    margin-top: 130px;
+    margin-bottom: 50px;
+}
+.login{
+    margin-top: 130px;
+    margin-left: 200px;
+}
+.ex1{
+    margin: 10px;
+}
+.img{
+    width: 45%;
+    position: relative;
+    left: 250px;
+    padding-bottom: 20px;
+}
+.img1{
+   
+    position: relative;
+    left: 250px;
+  
+    width: 45%;
+}
+.contact{
+    background-color:black;
+   display: block;
+   padding: 20px 0 20px 0;
+   min-height: 120px;
+   font-family: 'Ubuntu', sans-serif;
+   color: beige;
+
+}
+.align{
+  padding: 0 500px;   
+}
+
+.middle{
+    background-color: maroon;
+    min-height: 500px;
+    color: beige;
+}
+.middle1{
+    background-color: maroon;
+    min-height: 500px;
+    color: beige;
+}
+.signup
+{
+    margin: 100px 0 100px 200px;
+}
+
+.carousel1{
+    position: absolute;
+     top: 240px;
+    left: 600px;
+}
+.result{
+    min-height: 550px;
+    background-color: maroon;
+}
+.filter{
+    min-height: 550px;
+    max-width: 15%;
+    background-color: black;
+    color: beige;
+}
+.checks{
+    padding: 0 0 5px 20px;
+}
+.details{
+    min-height: 550px;
+    background-color: maroon;
+}
+.info
+{
+    background-color: white;
+    margin:100px 0 100px 100px ;
+    border-radius: 20px;
+    min-height: 400px;
+    padding-top: 80px;
+}
+.para
+{
+    position: relative;
+    left: 255px;
+}
