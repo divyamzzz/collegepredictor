@@ -1,6 +1,7 @@
 <%-include('partials/header')-%>
-    <div class="result">
-        <div class="filter">
+<div class="result">
+    <div class="row">  
+        <div class="filter col-lg-2">
             <u><h2 style="padding: 0 0 20px 20px;">Filters</h2></u>
             <h5 style="padding: 0 0 5px 20px;">Region</h5>
             <div class="checks">
@@ -48,5 +49,18 @@
             <a class="btn btn-primary" href="#" role="button">Submit</a>
             </div>      
         </div>
+        <div class="collegelist col-lg-6">
+           <h1>COLLEGES ACCEPTING</h1>
+           <ul type="none">
+            <% if(colleges.length===0) { %>
+                <h4>Sorry no college is accepting</h4>
+              <% } else { %>  
+            <% colleges.forEach(function(college){ %>
+                <li><h2><%=college.name%></h2></li>
+           <% }) }%>
+            
+           </ul>
+        </div>
     </div>
+</div>
     <%-include('partials/footer')-%>
