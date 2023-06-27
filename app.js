@@ -7,6 +7,7 @@ const mongoose =require("mongoose");
 mongoose.connect("mongodb://0.0.0.0:27017/collegepredictor",{useNewUrlParser: true});
 var sid="";
 var studetails=[];
+var collegenames=[];
 const studentschema = new mongoose.Schema({
     name : String,
     email : String,
@@ -14,7 +15,10 @@ const studentschema = new mongoose.Schema({
     rank : Number,
     category : String,
     password: String,
-    username:String
+    username:{
+        type:String,
+        unique:true
+    }
 
 });
 const verifystudent =new mongoose.Schema({
@@ -25,12 +29,12 @@ const collegeschema =new mongoose.Schema({
     name:String,
     maxrank:Number
 });
+
 const student = mongoose.model("student",studentschema);
 const college =mongoose.model("names",collegeschema);
 const registeredStudent = mongoose.model("registered",verifystudent);
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-
 app.get("/",function(req,res)
 {
     res.render('index');
@@ -61,7 +65,13 @@ app.get("/dashboard",function(req,res){
 })
 app.post("/dashboard",function(req,res)
 {
-    res.redirect('/result');
+   let rank=req.body.sbutton;
+   college.find({maxrank:{$gt:rank}},{name:1}).then(function(cname){
+    collegenames=cname;
+    res.redirect("/result");
+})
+
+
 })
 app.post("/signup",function(req,res)
 {
@@ -88,7 +98,7 @@ app.get("/signup",function(req,res)
 })
 app.get("/result",function(req,res)
 {
-    res.render('result');
+    res.render("result",{colleges:collegenames});
 })
 app.listen(3000,function()
 {
