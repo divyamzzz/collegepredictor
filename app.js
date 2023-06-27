@@ -12,7 +12,14 @@ const studentschema = new mongoose.Schema({
     email : String,
     gender : String,
     rank : Number,
-    category : String
+    category : String,
+    password: String,
+    username:String
+
+});
+const verifystudent =new mongoose.Schema({
+    username:String,
+    password:String
 });
 const collegeschema =new mongoose.Schema({
     name:String,
@@ -20,9 +27,7 @@ const collegeschema =new mongoose.Schema({
 });
 const student = mongoose.model("student",studentschema);
 const college =mongoose.model("names",collegeschema);
-college.find({}).then(function(collegedetails){
-    console.log(collegedetails);
-})
+const registeredStudent = mongoose.model("registered",verifystudent);
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
@@ -30,11 +35,29 @@ app.get("/",function(req,res)
 {
     res.render('index');
 })
+app.post("/",function(req,res){
+    const vstudent= new registeredStudent({
+       username:req.body.username,
+       password:req.body.password
+    });
+    vstudent.save();
+    student.find({username:vstudent.username,password:vstudent.password}).then(function(studentDetails){
+        studetails=studentDetails
+        res.redirect('dashboard');
+    })
+})
 app.get("/dashboard",function(req,res){
+    if(studetails.length===1)
+    {
+        res.render("dashboard",{sdetails:studetails}); 
+        studetails.pop();
+    }
+    else{
     student.find({_id:sid}).then(function(studentDetails)
     {
         res.render("dashboard",{sdetails:studentDetails}); 
     })
+}
 })
 app.post("/dashboard",function(req,res)
 {
@@ -47,7 +70,9 @@ app.post("/signup",function(req,res)
         email : req.body.email,
         gender : req.body.gender,
         rank : req.body.rank,
-        category : req.body.category
+        category : req.body.category,
+        username:req.body.username,
+        password:req.body.password
     })
     istudent.save();
    student.findOne({name:istudent.name},{_id:1}).then(function(studentDetails)
