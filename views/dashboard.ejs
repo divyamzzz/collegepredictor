@@ -15,19 +15,25 @@
           <h4>Gender: <%=student.gender%></h4>
         </li>
         <li>
+          <h4>userName: <%=student.username%></h4>
+        </li>
+        <li>
           <h4>Category: <%=student.category%></h4>
         </li>
         <li>
           <h4>Rank: <%=student.rank%></h4>
         </li>
-      <% }) %>
+        <!-- <li>
+          <h4>password: <%=student.password%></h4>
+        </li> -->
+    
       <form action="/dashboard" method="post">
         <label for="sbutton">CLICK TO VIEW RESULT</label>
         <br>
-        <button type="submit" name="sbutton">GO</button>
+        <button type="submit" name="sbutton" value="<%=student.rank%>">GO</button>
         </form>   
       </ul>
-    
+      <% }) %>
     </div>  
   </div>
   </div>  
