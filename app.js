@@ -15,10 +15,7 @@ const studentschema = new mongoose.Schema({
     rank : Number,
     category : String,
     password: String,
-    username:{
-        type:String,
-        unique:true
-    }
+    username:String
 
 });
 const verifystudent =new mongoose.Schema({
@@ -46,19 +43,20 @@ app.post("/",function(req,res){
     });
     vstudent.save();
     student.find({username:vstudent.username,password:vstudent.password}).then(function(studentDetails){
-        studetails=studentDetails
+        studetails=studentDetails;
         res.redirect('dashboard');
     })
 })
 app.get("/dashboard",function(req,res){
+  
     if(studetails.length===1)
     {
         res.render("dashboard",{sdetails:studetails}); 
-        studetails.pop();
     }
     else{
     student.find({_id:sid}).then(function(studentDetails)
     {
+
         res.render("dashboard",{sdetails:studentDetails}); 
     })
 }
@@ -85,10 +83,11 @@ app.post("/signup",function(req,res)
         password:req.body.password
     })
     istudent.save();
-   student.findOne({name:istudent.name},{_id:1}).then(function(studentDetails)
+   
+   student.find({username:istudent.username},{_id:1}).then(function(studentDetails)
    {
-        sid=studentDetails;
-        res.redirect("/dashboard");
+      sid=studentDetails;
+      res.redirect("/dashboard");
     })
    
 });
